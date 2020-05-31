@@ -36,18 +36,29 @@ If the two pairs are in the same rank, compare the highest value. For two pairs,
 Instruction to use PokerHand package:
 
 Example:
+
 Card[] card1 = { new Card("H", "2"), new Card("D", "3"), new Card("S", "5"), new Card("C", "9"),	new Card("D", "K") };
+
+
 Card[] card110 = { new Card("H", "2"), new Card("h", "3"), new Card("h", "5"), new Card("h", "9"),	new Card("D", "K") };
+
+
 PokerHand hand1 = new PokerHand(card1, "Hank");
+
 PokerHand hand110 = new PokerHand(card110, "John");
+
 Play play = new Play(p1, p2);
-		play.getResult();
+		
+play.getResult();
   
 Test Result:
 
 2S,2D,8C,9H,9H,
+
 2H,3C,3D,4D,5S,
+
 Hank wins. -TWOPAIRS: 9
+
 3D,6D,10D,12D,14D,
 2H,3D,5S,9C,13D,
 Hank wins. -FLUSH: Ace
