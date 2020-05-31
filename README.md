@@ -9,18 +9,29 @@ For exampe - for one card:
 
 
 Rule/ranks: lowest to highest
+
+
 High Card: cards with no two same cards in different suit. For example: 2S, 3S, 6S, 7D, 8H. 
 
 One pair: a pair in 5 card. For example: 2H, 2D, 5S, 10C, 9H.
+
 Two pairs: two paris of cards with the same value. For example, 2s, 2d, 5s, 5h, 10h
+
 Three of a kind: Example: 8S, 8D, 8H, 5H, AS
+
 Straight: Example, 5S, 6H, 7C, 8S, 9D
+
 Flush: all cards in the same suit, but order is not consecutive. Example: 5H, 8H, 9H, JH, KH
+
 Full house: 5S, 5C, 5D, AH, AS
+
 Four of a kind: Example, 8S, 8D, 8H, 8C, KS
+
 Straight Flush: all in same suit and order is consectuive. For example, 6H, 7H, 8H, 9H, 10H
 
+
 If the two pairs are in the same rank, compare the highest value. For two pairs, compare the next value of a pair. 
+
 
 Instruction to use PokerHand package:
 
