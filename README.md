@@ -10,6 +10,7 @@ For exampe - for one card:
 
 Rule/ranks: lowest to highest
 High Card: cards with no two same cards in different suit. For example: 2S, 3S, 6S, 7D, 8H. 
+
 One pair: a pair in 5 card. For example: 2H, 2D, 5S, 10C, 9H.
 Two pairs: two paris of cards with the same value. For example, 2s, 2d, 5s, 5h, 10h
 Three of a kind: Example: 8S, 8D, 8H, 5H, AS
