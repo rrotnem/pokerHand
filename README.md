@@ -60,23 +60,42 @@ Test Result:
 Hank wins. -TWOPAIRS: 9
 
 3D,6D,10D,12D,14D,
+
 2H,3D,5S,9C,13D,
+
 Hank wins. -FLUSH: Ace
+
 2D,3S,8C,8H,8H,
+
 2H,3C,4D,4D,5S,
+
 Hank wins. -THREEOFAKIND: 8
+
 2H,3D,5S,9C,13D,
+
 8H,9H,10H,11H,12H,
+
 John wins. -STRAIGHTFLUSH: Queen
+
 2H,3D,5S,9C,13D,
+
 8H,8C,8H,9S,15D,
+
 John wins. -THREEOFAKIND: 8
+
 2D,3S,8C,8H,8H,
+
 10S,12D,12H,12C,12D,
+
 John wins. -FOUROFAKIND: Queen
+
 9H,9D,9C,9D,10S,
+
+
 10S,12D,12H,12C,12D,
+
 John wins. -FOUROFAKIND: Queen over 9
+
  
  //test result for Play class
  
