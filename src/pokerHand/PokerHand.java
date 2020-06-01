@@ -11,6 +11,7 @@ public class PokerHand {
 	private Rank rank;
 	private int value = 0;
 	private int rankValue = 0;
+
 	public PokerHand(String name) {
 		this.name = name;
 		rank = Rank.HIGHCARD;
@@ -20,7 +21,7 @@ public class PokerHand {
 		this.cards = cards;
 		this.name = name;
 	}
-	
+
 	public void setCards(Card[] c) {
 		this.cards = c;
 	}
@@ -45,11 +46,13 @@ public class PokerHand {
 	public Rank getRank() {
 		return this.rank;
 	}
+
 	public int getRankValue() {
 		return this.rankValue;
 	}
+
 	public void setRankValue(int val) {
-		
+
 		this.rankValue = val;
 	}
 
@@ -136,17 +139,21 @@ public class PokerHand {
 	private boolean isStraight() {
 		// 5 cards with consecutive values
 		// rank: 2, 3, 4, 5 ,6 ,7 ,8, 9, 10, J, Q, K, A
-		return (this.cards[0].getValue() + 1 == this.cards[1].getValue() && this.cards[1].getValue() + 1 == this.cards[2].getValue()
-				&& this.cards[2].getValue() + 1 == this.cards[3].getValue() && this.cards[3].getValue() + 1 == this.cards[4].getValue());
+		return (this.cards[0].getValue() + 1 == this.cards[1].getValue()
+				&& this.cards[1].getValue() + 1 == this.cards[2].getValue()
+				&& this.cards[2].getValue() + 1 == this.cards[3].getValue()
+				&& this.cards[3].getValue() + 1 == this.cards[4].getValue());
 	}
 
 	private boolean fourOfKind() {
 		// the array is sorted
 		// return 4 + 1 || 1 + 4
 
-		boolean first = this.cards[0].getValue() == this.cards[1].getValue() && this.cards[1].getValue() == this.cards[2].getValue()
+		boolean first = this.cards[0].getValue() == this.cards[1].getValue()
+				&& this.cards[1].getValue() == this.cards[2].getValue()
 				&& this.cards[2].getValue() == this.cards[3].getValue();
-		boolean second = this.cards[1].getValue() == this.cards[2].getValue() && this.cards[2].getValue() == this.cards[3].getValue()
+		boolean second = this.cards[1].getValue() == this.cards[2].getValue()
+				&& this.cards[2].getValue() == this.cards[3].getValue()
 				&& this.cards[3].getValue() == this.cards[4].getValue();
 
 		return first || second;
@@ -156,9 +163,11 @@ public class PokerHand {
 	private boolean fullHouse() {
 		// 3 + 2 || 2 + 3
 
-		boolean first = this.cards[0].getValue() == this.cards[1].getValue() && this.cards[1].getValue() == this.cards[2].getValue()
+		boolean first = this.cards[0].getValue() == this.cards[1].getValue()
+				&& this.cards[1].getValue() == this.cards[2].getValue()
 				&& this.cards[3].getValue() == this.cards[4].getValue();
-		boolean second = this.cards[0].getValue() == this.cards[1].getValue() && this.cards[2].getValue() == this.cards[3].getValue()
+		boolean second = this.cards[0].getValue() == this.cards[1].getValue()
+				&& this.cards[2].getValue() == this.cards[3].getValue()
 				&& this.cards[3].getValue() == this.cards[4].getValue();
 
 		return first || second;
@@ -168,20 +177,26 @@ public class PokerHand {
 	private boolean threeOfKind() {
 		// 1 + 3 +1 || 3 + 1 + 1 || 1 + 1 + 3
 
-		boolean first = this.cards[1].getValue() == this.cards[2].getValue() && this.cards[2].getValue() == this.cards[3].getValue();
+		boolean first = this.cards[1].getValue() == this.cards[2].getValue()
+				&& this.cards[2].getValue() == this.cards[3].getValue();
 
-		boolean second = this.cards[0].getValue() == this.cards[1].getValue() && this.cards[1].getValue() == this.cards[2].getValue();
+		boolean second = this.cards[0].getValue() == this.cards[1].getValue()
+				&& this.cards[1].getValue() == this.cards[2].getValue();
 
-		boolean third = this.cards[2].getValue() == this.cards[3].getValue() && this.cards[3].getValue() == this.cards[4].getValue();
+		boolean third = this.cards[2].getValue() == this.cards[3].getValue()
+				&& this.cards[3].getValue() == this.cards[4].getValue();
 
 		return first || second || third;
 	}
 
 	private boolean twoPairs() {
 		// 2 + 2 +1 || 1+2 +2|| 2+1+2
-		boolean first = this.cards[0].getValue() == this.cards[1].getValue() && this.cards[2].getValue() == this.cards[3].getValue();
-		boolean second = this.cards[1].getValue() == this.cards[2].getValue() && this.cards[3].getValue() == this.cards[4].getValue();
-		boolean third = this.cards[0].getValue() == this.cards[1].getValue() && this.cards[3].getValue() == this.cards[4].getValue();
+		boolean first = this.cards[0].getValue() == this.cards[1].getValue()
+				&& this.cards[2].getValue() == this.cards[3].getValue();
+		boolean second = this.cards[1].getValue() == this.cards[2].getValue()
+				&& this.cards[3].getValue() == this.cards[4].getValue();
+		boolean third = this.cards[0].getValue() == this.cards[1].getValue()
+				&& this.cards[3].getValue() == this.cards[4].getValue();
 
 		return first || second || third;
 	}
@@ -190,28 +205,33 @@ public class PokerHand {
 
 		// 2+1+1+1 || 1+2+1+1|| 1+1+2+1|| 1+1+1+2
 
-		return (this.cards[0].getValue() == this.cards[1].getValue() || this.cards[1].getValue() == this.cards[2].getValue()
-				|| this.cards[2].getValue() == this.cards[3].getValue() || this.cards[3].getValue() == this.cards[4].getValue());
+		return (this.cards[0].getValue() == this.cards[1].getValue()
+				|| this.cards[1].getValue() == this.cards[2].getValue()
+				|| this.cards[2].getValue() == this.cards[3].getValue()
+				|| this.cards[3].getValue() == this.cards[4].getValue());
 	}
 
 	private int findTwoPairs() {
 
-		boolean first = this.cards[0].getValue() == this.cards[1].getValue() && this.cards[2].getValue() == this.cards[3].getValue();
-		boolean second = this.cards[1].getValue() == this.cards[2].getValue() && this.cards[3].getValue() == this.cards[4].getValue();
-		boolean third = this.cards[0].getValue() == this.cards[1].getValue() && this.cards[3].getValue() == this.cards[4].getValue();
+		boolean first = this.cards[0].getValue() == this.cards[1].getValue()
+				&& this.cards[2].getValue() == this.cards[3].getValue();
+		boolean second = this.cards[1].getValue() == this.cards[2].getValue()
+				&& this.cards[3].getValue() == this.cards[4].getValue();
+		boolean third = this.cards[0].getValue() == this.cards[1].getValue()
+				&& this.cards[3].getValue() == this.cards[4].getValue();
 		if (first) {
 			if (this.cards[0].getValue() > this.cards[2].getValue()) {
 				return this.cards[0].getValue();
 			} else {
 				return this.cards[2].getValue();
 			}
-		}else if (second) {
+		} else if (second) {
 			if (this.cards[1].getValue() > this.cards[3].getValue()) {
 				return this.cards[1].getValue();
 			} else {
 				return this.cards[3].getValue();
 			}
-		}else if(third) {
+		} else if (third) {
 			if (this.cards[0].getValue() > this.cards[3].getValue()) {
 				return this.cards[0].getValue();
 			} else {
@@ -253,7 +273,7 @@ public class PokerHand {
 		}
 
 		for (int i = 0; i < 5; i++) {
-			System.out.print(this.cards[i].getValue() + this.cards[i].getSuit() +",");
+			System.out.print(this.cards[i].getValue() + this.cards[i].getSuit() + ",");
 		}
 		System.out.println("");
 	}
@@ -307,13 +327,12 @@ public class PokerHand {
 		Card[] card11 = { new Card("H", "2"), new Card("D", "2"), new Card("S", "8"), new Card("C", "10"),
 				new Card("D", "8") };
 
-
 		PokerHand hand1 = new PokerHand(card1, "Player 1");
 		PokerHand hand110 = new PokerHand(card110, "Player 1");
 		PokerHand hand20 = new PokerHand(card20, "Player 1");
 		PokerHand hand21 = new PokerHand(card21, "Player 1");
-		PokerHand hand22= new PokerHand(card22, "Player 1");
-		PokerHand hand23= new PokerHand(card23, "Player 1");
+		PokerHand hand22 = new PokerHand(card22, "Player 1");
+		PokerHand hand23 = new PokerHand(card23, "Player 1");
 		PokerHand hand3 = new PokerHand(card3, "Player 1");
 		PokerHand hand4 = new PokerHand(card4, "Player 1");
 		PokerHand hand41 = new PokerHand(card41, "Player 1");
@@ -331,29 +350,28 @@ public class PokerHand {
 		PokerHand hand10 = new PokerHand(card10, "Player 1");
 		PokerHand hand11 = new PokerHand(card11, "Player 1");
 
-		System.out.println(" " + hand1.computeHandRank() + "  "+ hand1.getValue());
-		System.out.println(" " + hand110.computeHandRank() + "  "+ hand110.getValue());
-		System.out.println(" " + hand20.computeHandRank() +"  "+ hand20.getValue());
-		System.out.println(" " + hand21.computeHandRank() +"  "+ hand21.getValue());
-		System.out.println(" " + hand22.computeHandRank() + "  "+hand22.getValue());
-		System.out.println(" " + hand23.computeHandRank() +"  "+ hand23.getValue());
-		System.out.println(" " + hand10.computeHandRank() + "  "+hand10.getValue());
-		System.out.println(" " + hand11.computeHandRank() + "  "+hand11.getValue());
-		System.out.println(" " + hand3.computeHandRank() + "  "+hand3.getValue());
-		System.out.println(" " + hand4.computeHandRank() +"  "+ hand4.getValue());
-		System.out.println(" " + hand41.computeHandRank() +"  "+ hand41.getValue());
-		System.out.println(" " + hand42.computeHandRank() +"  "+ hand42.getValue());
-		System.out.println(" " + hand5.computeHandRank() + "  "+hand5.getValue());
-		System.out.println(" " + hand51.computeHandRank() + "  "+hand51.getValue());
-		System.out.println(" " + hand6.computeHandRank() + "  "+hand6.getValue());
-		System.out.println(" " + hand61.computeHandRank() + "  "+hand61.getValue());
-		System.out.println(" " + hand7.computeHandRank() +"  "+ hand7.getValue());
-		System.out.println(" " + hand71.computeHandRank() +"  "+ hand71.getValue());
-		System.out.println(" " + hand8.computeHandRank() + "  "+hand8.getValue());
-		System.out.println(" " + hand81.computeHandRank() +"  "+ hand81.getValue());
-		System.out.println(" " + hand9.computeHandRank() + "  "+hand9.getValue());
-		System.out.println(" " + hand91.computeHandRank() +"  "+ hand91.getValue());
-
+		System.out.println(" " + hand1.computeHandRank() + "  " + hand1.getValue());
+		System.out.println(" " + hand110.computeHandRank() + "  " + hand110.getValue());
+		System.out.println(" " + hand20.computeHandRank() + "  " + hand20.getValue());
+		System.out.println(" " + hand21.computeHandRank() + "  " + hand21.getValue());
+		System.out.println(" " + hand22.computeHandRank() + "  " + hand22.getValue());
+		System.out.println(" " + hand23.computeHandRank() + "  " + hand23.getValue());
+		System.out.println(" " + hand10.computeHandRank() + "  " + hand10.getValue());
+		System.out.println(" " + hand11.computeHandRank() + "  " + hand11.getValue());
+		System.out.println(" " + hand3.computeHandRank() + "  " + hand3.getValue());
+		System.out.println(" " + hand4.computeHandRank() + "  " + hand4.getValue());
+		System.out.println(" " + hand41.computeHandRank() + "  " + hand41.getValue());
+		System.out.println(" " + hand42.computeHandRank() + "  " + hand42.getValue());
+		System.out.println(" " + hand5.computeHandRank() + "  " + hand5.getValue());
+		System.out.println(" " + hand51.computeHandRank() + "  " + hand51.getValue());
+		System.out.println(" " + hand6.computeHandRank() + "  " + hand6.getValue());
+		System.out.println(" " + hand61.computeHandRank() + "  " + hand61.getValue());
+		System.out.println(" " + hand7.computeHandRank() + "  " + hand7.getValue());
+		System.out.println(" " + hand71.computeHandRank() + "  " + hand71.getValue());
+		System.out.println(" " + hand8.computeHandRank() + "  " + hand8.getValue());
+		System.out.println(" " + hand81.computeHandRank() + "  " + hand81.getValue());
+		System.out.println(" " + hand9.computeHandRank() + "  " + hand9.getValue());
+		System.out.println(" " + hand91.computeHandRank() + "  " + hand91.getValue());
 
 	}
 
